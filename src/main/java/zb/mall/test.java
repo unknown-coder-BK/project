@@ -19,8 +19,8 @@ public class test {
             //参数设置，需要注意的就是里边不能传NULL，要传空字符串
             NameValuePair[] data = {
                     new NameValuePair("uid", "175358"),
-                    new NameValuePair("pwd", sign("47kbd7", "", "utf-8")),
-                    new NameValuePair("mobile","13800000000"),
+                    new NameValuePair("pwd", sign("Wytx2022@Whdy", "", "utf-8")),
+                    new NameValuePair("mobile","13437269833"),
                     new NameValuePair("srcphone","10690123456"),
                     new NameValuePair("msg",URLEncoder.encode("【博士通】测试短信。", "UTF-8")),
             };

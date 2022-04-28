@@ -22,10 +22,16 @@
           <div class="login-info">密码:&nbsp;
             <input class="login-info-input"  name="password" placeholder="请输入你的密码"/>
           </div>
-        </div>
+          <div class="login-info">验证码:&nbsp;
+            <input class="login-info-input verify-code" name="verifyCode" placeholder="请输入验证码"/>
+            <img alt="单击图片刷新" th:src="@{/common/captcha}"
+                 th:onclick="this.src=_ctx + 'common/captcha?d='">
+          </div>
       </form>
     </div>
   </div>
 </div>
 </body>
+
+<script th:inline="javascript">var _ctx = [[@{/}]];</script>
 </html>
