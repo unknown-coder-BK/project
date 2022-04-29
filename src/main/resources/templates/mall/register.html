@@ -20,7 +20,7 @@
             <input class="login-info-input" name="loginName" placeholder="请输入你的手机号"/>
           </div>
           <div class="login-info">密码:&nbsp;
-            <input class="login-info-input"  name="password" placeholder="请输入你的密码"/>
+            <input class="login-info-input"  name="passWord" placeholder="请输入你的密码"/>
           </div>
           <div class="login-info">验证码:&nbsp;
             <input class="login-info-input verify-code" name="verifyCode" placeholder="请输入验证码"/>
@@ -42,12 +42,13 @@
 <script th:inline="javascript">var _ctx = [[@{/}]];</script>
 <script type="text/javascript">
   function register() {
-    var params = $("#registerForm").serialize();
+    var params = JSON.stringify($("#registerForm").serializeJson());
     var url = _ctx + 'register';
     $.ajax({
       type: 'POST',//方法类型
       url: url,
       data: params,
+      contentType: 'application/json',
       success: function (result) {
         if (result.code == 200) {
           swal({
@@ -72,5 +73,27 @@
       }
     });
   }
+
+  (function(window, $) {
+    $.fn.serializeJson = function() {
+      var serializeObj = {};
+      var array = this.serializeArray();
+      var str = this.serialize();
+      $(array).each(
+              function() {
+                if (serializeObj[this.name]) {
+                  if ($.isArray(serializeObj[this.name])) {
+                    serializeObj[this.name].push(this.value);
+                  } else {
+                    serializeObj[this.name] = [
+                      serializeObj[this.name], this.value ];
+                  }
+                } else {
+                  serializeObj[this.name] = this.value;
+                }
+              });
+      return serializeObj;
+    };
+  })(window, jQuery);
 </script>
 </html>
