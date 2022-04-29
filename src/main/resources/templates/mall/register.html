@@ -27,11 +27,50 @@
             <img alt="单击图片刷新" th:src="@{/common/captcha}"
                  th:onclick="this.src=_ctx + 'common/captcha?d='">
           </div>
+          <div class="login_submit">
+            <input class="submit" type="button" onclick="register()" value="立即注册">
+          </div>
       </form>
     </div>
   </div>
 </div>
 </body>
 
+<script th:src="@{/js/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/sweetalert/sweetalert.min.js}"></script>
+
 <script th:inline="javascript">var _ctx = [[@{/}]];</script>
+<script type="text/javascript">
+  function register() {
+    var params = $("#registerForm").serialize();
+    var url = _ctx + 'register';
+    $.ajax({
+      type: 'POST',//方法类型
+      url: url,
+      data: params,
+      success: function (result) {
+        if (result.code == 200) {
+          swal({
+              title: "注册成功",
+              text: "是否跳转至登录页?",
+              icon: "success",
+              buttons: true,
+              dangerMode: true,
+          }).then((flag) => {
+                  if (flag) {
+                      window.location.href = _ctx + 'login';
+                  }
+              }
+          );
+        }else {
+          swal(result.msg, {
+            icon: "error",
+          });
+        }
+      },
+      error: function () {
+      }
+    });
+  }
+</script>
 </html>
