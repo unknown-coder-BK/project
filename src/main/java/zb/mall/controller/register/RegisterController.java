@@ -2,8 +2,8 @@ package zb.mall.controller.register;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import zb.mall.controller.base.resp.R;
-import zb.mall.controller.pojo.user.MallUserReq;
+import zb.mall.base.resp.R;
+import zb.mall.pojo.user.MallUserReq;
 
 import javax.servlet.http.HttpSession;
 

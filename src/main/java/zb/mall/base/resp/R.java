@@ -1,4 +1,4 @@
-package zb.mall.controller.base.resp;
+package zb.mall.base.resp;
 
 public class R {
     private int code;

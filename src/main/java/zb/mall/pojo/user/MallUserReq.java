@@ -1,4 +1,4 @@
-package zb.mall.controller.pojo.user;
+package zb.mall.pojo.user;
 
 import lombok.Data;
 
