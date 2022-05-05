@@ -1,6 +1,7 @@
 package zb.mall.controller.register;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import zb.mall.base.resp.R;
 import zb.mall.pojo.user.MallUserReq;
@@ -17,7 +18,7 @@ public class RegisterController {
 
     @RequestMapping(value = "register",method = RequestMethod.POST)
     @ResponseBody
-    public R register(@RequestBody MallUserReq req,  HttpSession session){
+    public R register(@RequestBody @Validated(value = {MallUserReq.Register.class}) MallUserReq req, HttpSession session){
         return R.error("验证码错误");
     }
 
