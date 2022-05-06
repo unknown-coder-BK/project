@@ -11,6 +11,31 @@ public class R {
         return r;
     }
 
+    public static R error() {
+        R r = new R();
+        r.code = 500;
+        r.msg = "请求失败";
+        return r;
+    }
+
+
+    public static R success() {
+        R r = new R();
+        r.code = 200;
+        r.msg = "请求成功";
+        return r;
+    }
+
+    public static R result(boolean result) {
+        return result ? success() : error();
+    }
+
+
+    public static R result(boolean result, String errorMessage) {
+        return result ? success() : error(errorMessage);
+    }
+
+
     public int getCode() {
         return code;
     }
