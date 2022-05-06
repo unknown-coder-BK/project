@@ -1,10 +1,12 @@
 package zb.mall.core.entity.vo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@TableName("tb_newbee_mall_user")
 public class MallUser {
 
     private Long userId;
