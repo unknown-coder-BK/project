@@ -9,7 +9,7 @@ public class MallLoginValidateInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return false;
+        return true;
         /**拦截没有登录的key 进行无线重定向*/
     }
 }
