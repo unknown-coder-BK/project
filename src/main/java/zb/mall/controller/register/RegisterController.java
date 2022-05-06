@@ -21,13 +21,14 @@ public class RegisterController {
     @RequestMapping(value = "register",method = RequestMethod.POST)
     @ResponseBody
     public R register(@RequestBody @Validated(value = {MallUserReq.Register.class}) MallUserReq req, HttpSession session){
-        String loginName = req.getLoginName();
+        String mobilePhone = req.getLoginName();
         String passWord = req.getPassWord();
         String verifyCode = req.getVerifyCode();
         String captchaCode = (String)session.getAttribute(Constants.MALL_VERIFY_CODE_KEY);
         if(!StringUtils.equalsIgnoreCase(verifyCode,captchaCode)){
             return R.error("验证码错误");
         }
+
         return null;
     }
 }
