@@ -13,6 +13,7 @@ import zb.mall.core.service.CouponService;
 import zb.mall.core.service.CouponUserService;
 import zb.mall.core.service.MallUserService;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -52,5 +53,11 @@ public class DaoTest {
     public void test4(){
         List<CouponUser> list = couponUserService.list(null);
         System.out.println(list);
+    }
+
+    @Test
+    public void test5(){
+        Date date = couponService.calculateEndDate((short) 1);
+        System.out.println(date);
     }
 }
