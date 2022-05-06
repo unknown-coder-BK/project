@@ -7,8 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import zb.mall.core.dao.MallUserDao;
 import zb.mall.core.entity.vo.Coupon;
+import zb.mall.core.entity.vo.CouponUser;
 import zb.mall.core.entity.vo.MallUser;
 import zb.mall.core.service.CouponService;
+import zb.mall.core.service.CouponUserService;
 import zb.mall.core.service.MallUserService;
 
 import java.util.List;
@@ -26,6 +28,8 @@ public class DaoTest {
     @Autowired
     CouponService couponService;
 
+    @Autowired
+    CouponUserService couponUserService;
     @Test
     public void test1(){
         List<MallUser> mallUsers = mallUserDao.selectList(null);
@@ -41,6 +45,12 @@ public class DaoTest {
     @Test
     public void test3(){
         List<Coupon> list = couponService.list(null);
+        System.out.println(list);
+    }
+
+    @Test
+    public void test4(){
+        List<CouponUser> list = couponUserService.list(null);
         System.out.println(list);
     }
 }
