@@ -34,4 +34,11 @@ public class MallUserReq {
     @GroupSequence({LoginName.class, Password.class, VerifyCode.class})
     public interface Register {
     }
+
+    /**
+     * 顺序分组
+     */
+    @GroupSequence({LoginName.class, Password.class, VerifyCode.class})
+    public interface Login {
+    }
 }
