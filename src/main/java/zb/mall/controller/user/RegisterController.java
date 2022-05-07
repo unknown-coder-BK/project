@@ -1,4 +1,4 @@
-package zb.mall.controller.register;
+package zb.mall.controller.user;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.commons.lang3.ObjectUtils;
