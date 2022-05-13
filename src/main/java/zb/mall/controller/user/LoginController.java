@@ -17,14 +17,15 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
+    @Autowired
+    MallUserService mallUserService;
+
+
     @GetMapping("/login")
     public String loginPage(){
         return "mall/login";
     }
 
-
-    @Autowired
-    MallUserService mallUserService;
 
     @ResponseBody
     @PostMapping("/login")
