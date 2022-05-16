@@ -9,7 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import zb.mall.base.resp.R;
 import zb.mall.constans.Constants;
-import zb.mall.core.entity.vo.MallUser;
+import zb.mall.core.entity.MallUser;
 import zb.mall.core.service.MallUserService;
 import zb.mall.pojo.user.MallUserReq;
 
