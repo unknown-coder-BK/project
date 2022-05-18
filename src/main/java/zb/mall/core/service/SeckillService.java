@@ -1,6 +1,9 @@
 package zb.mall.core.service;
 
 
-public interface SeckillService {
+import com.baomidou.mybatisplus.extension.service.IService;
+import zb.mall.core.entity.Seckill;
+
+public interface SeckillService extends IService<Seckill> {
 
 }
