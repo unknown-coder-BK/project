@@ -4,17 +4,20 @@
   <th:block th:include="mall/header::head-fragment"></th:block>
 </head>
 <body>
-  <slot id="content">
-    <nav th:replace="mall/header::nav-fragment"></nav>
-    <div id="seckill">
-      <h2>秒杀专区</h2>
-      <ul>
-        <th:block th:unless="${#lists.isEmpty(seckillList)}">
-
+<slot id="content">
+  <nav th:replace="mall/header::nav-fragment"></nav>
+  <div id="seckill">
+    <h2>秒杀专区</h2>
+    <ul>
+      <th:block th:unless="${#lists.isEmpty(seckillList)}">
+        <th:block th:each="seckill : ${seckillList}">
+          <li>
+            <img th:src="@{${seckill.goodsCoverImg}}" th:alt="${seckill.goodsName}">
+          </li>
         </th:block>
-      </ul>
-    </div>
-  </slot>
-  </body>
+      </th:block>
+    </ul>
+  </div>
+</slot>
 </body>
 </html>

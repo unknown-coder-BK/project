@@ -59,6 +59,7 @@ public class SeckillController {
             return map;
         }).collect(Collectors.toList());
         //themeleaf jar
+        request.setAttribute("seckillList", list);
         WebContext ctx = new WebContext(request, response, request.getServletContext(), request.getLocale(), model.asMap());
         String html = thymeleafViewResolver.getTemplateEngine().process("mall/seckill-list", ctx);
         return html;
