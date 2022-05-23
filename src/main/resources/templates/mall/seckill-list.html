@@ -12,7 +12,18 @@
       <th:block th:unless="${#lists.isEmpty(seckillList)}">
         <th:block th:each="seckill : ${seckillList}">
           <li>
-            <img th:src="@{${seckill.goodsCoverImg}}" th:alt="${seckill.goodsName}">
+            <a th:href="@{'/seckill/detail/'+${seckill.seckillId}}">
+              <img th:src="@{${seckill.goodsCoverImg}}" th:alt="${seckill.goodsName}">
+              <div class="seckillPrice">
+                ￥<i th:text="${seckill.seckillPrice}"></i>
+              </div>
+              <div class="originPrice">
+                ￥<del th:text="${seckill.originalPrice}"></del>
+              </div>
+              <div class="seckillButton">
+                <button>立即抢购</button>
+              </div>
+            </a>
           </li>
         </th:block>
       </th:block>
