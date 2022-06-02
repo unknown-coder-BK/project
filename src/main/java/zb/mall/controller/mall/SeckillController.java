@@ -6,10 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import zb.mall.constans.Constants;
@@ -62,6 +59,17 @@ public class SeckillController {
         request.setAttribute("seckillList", list);
         WebContext ctx = new WebContext(request, response, request.getServletContext(), request.getLocale(), model.asMap());
         String html = thymeleafViewResolver.getTemplateEngine().process("mall/seckill-list", ctx);
+        return html;
+    }
+
+    @GetMapping("detail/{seckillId}")
+    @ResponseBody
+    public String detailPage(@PathVariable("seckillId") Long seckillId,
+                             HttpServletRequest request,
+                             HttpServletResponse response,
+                             Model model){
+        WebContext ctx = new WebContext(request, response, request.getServletContext(), request.getLocale(), model.asMap());
+        String html = thymeleafViewResolver.getTemplateEngine().process("mall/seckill-detail", ctx);
         return html;
     }
 

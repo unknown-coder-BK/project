@@ -1,6 +1,5 @@
 package zb.mall.config;
 
-import org.aopalliance.intercept.Interceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
