@@ -2,11 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:include="mall/header::head-fragment"></th:block>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
     <nav th:replace="mall/header::nav-fragment"></nav>
     <div>
-
+        <div>
+            <img th:src="@{${goodsDetail.goodsCoverImg}}">
+        </div>
+        <div>
+            <h2>
+                <span class="glyphicon glyphicon-time"></span>
+            </h2>
+        </div>
     </div>
 </body>
 </html>

@@ -2,14 +2,14 @@ package zb.mall.controller.mall;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-import zb.mall.constans.Constants;
 import zb.mall.core.entity.Seckill;
 import zb.mall.core.entity.vo.Goods;
 import zb.mall.core.service.GoodsService;
@@ -68,6 +68,12 @@ public class SeckillController {
                              HttpServletRequest request,
                              HttpServletResponse response,
                              Model model){
+        Map<String, Object> map = new HashMap<>();
+        Seckill seckillInfo = seckillService.getById(seckillId);
+        Long goodsId = seckillInfo.getGoodsId();
+        Goods goodInfo = goodsService.getById(goodsId);
+        map.put("goodsCoverImg",goodInfo.getGoodsCoverImg());
+        request.setAttribute("goodsDetail", map);
         WebContext ctx = new WebContext(request, response, request.getServletContext(), request.getLocale(), model.asMap());
         String html = thymeleafViewResolver.getTemplateEngine().process("mall/seckill-detail", ctx);
         return html;
